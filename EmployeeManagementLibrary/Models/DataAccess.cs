@@ -18,10 +18,12 @@ namespace EmployeeManagementLibrary.Models
             return _employees;
         }
 
+        
         public EmployeeModel AddEmployee(string firstName, string lastName)
         {
             EmployeeModel newEmployee = new() { FirstName = firstName, LastName = lastName };
             newEmployee.Id = _employees.Max(x => x.Id) + 1;
+            _employees.Add( newEmployee );
             return newEmployee;
         }
     }
