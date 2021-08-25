@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "qw6oQ4nfbnKqMlZLbfyXNCmgyL6d27iIgsIIFSYqmDw8c1tkhy2wUL6MpYS/Vf730iPYEwTyyGq10dWdJSdU8Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Jeremy\\Documents\\Code\\EmployeeManagementDemo\\EmployeeManagementLibrary\\EmployeeManagementLibrary.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Jeremy\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
