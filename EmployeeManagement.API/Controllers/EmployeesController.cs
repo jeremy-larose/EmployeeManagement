@@ -26,6 +26,7 @@ namespace EmployeeManagement.API.Controllers
             return await _mediator.Send(new GetEmployeeListQuery());
         }
 
+        // GET api/<EmployeesController/<id>
         [HttpGet("{id}")]
         public async Task<EmployeeModel> Get(int id)
         {
@@ -37,5 +38,11 @@ namespace EmployeeManagement.API.Controllers
         {
             return await _mediator.Send(new AddEmployeeCommand(employeeModel.FirstName, employeeModel.LastName));
         }
-}
+
+        [HttpDelete( "{id}")]
+        public async Task<Unit> Delete(int id)
+        {
+            return await _mediator.Send(new DeleteEmployeeCommand(id));
+        }
+    }
 }

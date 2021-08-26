@@ -7,5 +7,6 @@ namespace EmployeeManagementLibrary.Models
     {
         List<EmployeeModel> GetEmployees();
         EmployeeModel AddEmployee(string firstName, string lastName);
+        void DeleteEmployee(int id);
     }
 }

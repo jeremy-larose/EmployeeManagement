@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using EmployeeManagementLibrary.Data;
+using MediatR;
 
 namespace EmployeeManagementLibrary.Models
 {
@@ -25,6 +26,12 @@ namespace EmployeeManagementLibrary.Models
             newEmployee.Id = _employees.Max(x => x.Id) + 1;
             _employees.Add( newEmployee );
             return newEmployee;
+        }
+
+        public void DeleteEmployee(int id)
+        {
+            var employeeToDelete = _employees.FirstOrDefault(e => e.Id == id);
+            _employees.Remove(employeeToDelete);
         }
     }
 }
