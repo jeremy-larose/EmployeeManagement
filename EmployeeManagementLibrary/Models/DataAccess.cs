@@ -33,5 +33,16 @@ namespace EmployeeManagementLibrary.Models
             var employeeToDelete = _employees.FirstOrDefault(e => e.Id == id);
             _employees.Remove(employeeToDelete);
         }
+
+        public EmployeeModel UpdateEmployee(int id, string firstName, string lastName)
+        {
+            var employeeToUpdate = _employees.FirstOrDefault(e => e.Id == id);
+            if (employeeToUpdate == null)
+                return null;
+            
+            employeeToUpdate.FirstName = firstName;
+            employeeToUpdate.LastName = lastName;
+            return employeeToUpdate;
+        }
     }
 }

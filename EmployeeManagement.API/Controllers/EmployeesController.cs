@@ -44,5 +44,11 @@ namespace EmployeeManagement.API.Controllers
         {
             return await _mediator.Send(new DeleteEmployeeCommand(id));
         }
+
+        [HttpPut("{id}")]
+        public async Task<EmployeeModel> Put([FromBody] EmployeeModel employeeModel)
+        {
+            return await _mediator.Send(new UpdateEmployeeCommand(employeeModel.Id, employeeModel.FirstName, employeeModel.LastName));
+        }
     }
 }
