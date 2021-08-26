@@ -8,6 +8,6 @@ namespace EmployeeManagementLibrary.Models
         List<EmployeeModel> GetEmployees();
         EmployeeModel AddEmployee(string firstName, string lastName);
         void DeleteEmployee(int id);
-        EmployeeModel UpdateEmployee(int id, string firstName, string lastName);
+        void UpdateEmployee(int id, string firstName, string lastName );
     }
 }

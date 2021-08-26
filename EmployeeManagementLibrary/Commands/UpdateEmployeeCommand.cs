@@ -6,9 +6,9 @@ using MediatR;
 
 namespace EmployeeManagementLibrary.Commands
 {
-    public record UpdateEmployeeCommand(int Id, string FirstName, string LastName) : IRequest<EmployeeModel>;
+    public record UpdateEmployeeCommand(int Id, string FirstName, string LastName ) : IRequest;
 
-    public class UpdateEmployeeCommandHandler : IRequestHandler<UpdateEmployeeCommand, EmployeeModel>
+    public class UpdateEmployeeCommandHandler : IRequestHandler<UpdateEmployeeCommand>
     {
         private readonly IDataAccess _dataAccess;
 
@@ -17,9 +17,10 @@ namespace EmployeeManagementLibrary.Commands
             _dataAccess = dataAccess;
         }
 
-        public Task<EmployeeModel> Handle(UpdateEmployeeCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(UpdateEmployeeCommand request, CancellationToken cancellationToken)
         {
-            return Task.FromResult(_dataAccess.UpdateEmployee(request.Id, request.FirstName, request.LastName));
+            _dataAccess.UpdateEmployee(request.Id, request.FirstName, request.LastName);
+            return Unit.Value;
         }
     }
 }

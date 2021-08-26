@@ -31,18 +31,20 @@ namespace EmployeeManagementLibrary.Models
         public void DeleteEmployee(int id)
         {
             var employeeToDelete = _employees.FirstOrDefault(e => e.Id == id);
-            _employees.Remove(employeeToDelete);
+            if( employeeToDelete != null )
+                _employees.Remove(employeeToDelete);
         }
 
-        public EmployeeModel UpdateEmployee(int id, string firstName, string lastName)
+        public void UpdateEmployee(int id, string firstName, string lastName )
         {
             var employeeToUpdate = _employees.FirstOrDefault(e => e.Id == id);
+
             if (employeeToUpdate == null)
-                return null;
+                return;
             
+            employeeToUpdate.Id = id;
             employeeToUpdate.FirstName = firstName;
             employeeToUpdate.LastName = lastName;
-            return employeeToUpdate;
         }
     }
 }
